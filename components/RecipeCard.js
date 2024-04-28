@@ -6,10 +6,6 @@ function RecipeCard({ recipe }) {
   const { title, slug, cookingTime, image, thumbnail } = recipe.fields;
   return (
     <div >
-      <h1>
-        {title}
-      </h1>
-      {/* {thumbnail}  */}
       <Image
         src={`https:${thumbnail.fields.file.url}`}
         alt={title}
@@ -17,6 +13,7 @@ function RecipeCard({ recipe }) {
         height={400}
       />
       <div className="content">
+        <b>{title}</b>
         <div className="info">
           <p>Takes approx {cookingTime} mins to make</p>
         </div>
