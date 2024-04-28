@@ -30,13 +30,15 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       recipe: res.items[0],
-      revalidate: 1,
+      fallback: true,
     }
   }
 }
 
 export default function RecipeDetails({ recipe}) {
-  // console.log('recipe', recipe);
+  if(!recipe) return (
+    <div>loading...</div>
+  )
   const { title, cookingTime, thumbnail, method } = recipe.fields;
   return (
     <div>
